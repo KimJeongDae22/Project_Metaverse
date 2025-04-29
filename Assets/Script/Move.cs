@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
 {
     protected Rigidbody2D rigid2D;
 
-    [SerializeField] private SpriteRenderer playerRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Transform weaponPivot;
 
     protected Vector2 moveDirection = Vector2.zero;

@@ -298,8 +298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36784f245ebc8ea48901f8327935a4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRenderer: {fileID: 556210509}
+  spriteRenderer: {fileID: 0}
   weaponPivot: {fileID: 556210511}
+  jumpPower: 5
+  jumpY: 0
+  Gravity: 5
+  isJumping: 0
 --- !u!4 &556210511
 Transform:
   m_ObjectHideFlags: 0

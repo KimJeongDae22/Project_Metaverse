@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -13,6 +15,10 @@ public class Move : MonoBehaviour
 
     protected Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
+    [SerializeField] protected float jumpPower = 5.0f;
+    [SerializeField] protected float jumpY = 0.0f;
+    [SerializeField] protected float Gravity = 0.5f;
+    [SerializeField] protected bool isJumping = false;
     protected virtual void Awake()
     {
         rigid2D = GetComponent<Rigidbody2D>();
@@ -29,6 +35,7 @@ public class Move : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         Movement(moveDirection);
+        Jumping();
         if (knockbackDuration > 0.0f)
             knockbackDuration -= Time.deltaTime;
     }
@@ -41,6 +48,23 @@ public class Move : MonoBehaviour
             direction += knockback;
         }
         rigid2D.velocity = direction;
+    }
+    private void Jumping()
+    {
+        if (isJumping)
+        {
+            if (jumpY > -jumpPower)
+            {
+                rigid2D.velocity += new Vector2 (0, jumpY);
+                jumpY -= 0.02f * Gravity;
+            }
+            else
+            {
+                jumpY = 0;
+                isJumping = false;
+            }
+        }
+
     }
     protected virtual void InputKeys()
     {

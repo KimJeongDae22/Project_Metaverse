@@ -58,7 +58,8 @@ public class Move : MonoBehaviour
         {
             if (jumpY > -jumpPower)
             {
-                rigid2D.velocity += new Vector2(0, jumpY);
+                //rigid2D.velocity += new Vector2(0, jumpY);
+                transform.position += new Vector3(0, jumpY);
                 jumpY -= 0.02f * Gravity;
                 if (jumpY < 0)
                     anim.Anim_JumpFall();

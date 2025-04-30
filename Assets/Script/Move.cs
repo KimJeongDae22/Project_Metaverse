@@ -48,6 +48,8 @@ public class Move : MonoBehaviour
             direction += knockback;
         }
         rigid2D.velocity = direction;
+        if (direction.x != 0)
+        spriteRenderer.flipX = direction.x < 0;
     }
     private void Jumping()
     {

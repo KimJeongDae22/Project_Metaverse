@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -19,13 +15,17 @@ public class Move : MonoBehaviour
     [SerializeField] protected float jumpY = 0.0f;
     [SerializeField] protected float Gravity = 0.5f;
     [SerializeField] protected bool isJumping = false;
+
+    [SerializeField] protected bool isMove = false;
+    protected Anim anim;
     protected virtual void Awake()
     {
         rigid2D = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Anim>();
     }
     protected virtual void Start()
     {
-        
+
     }
 
     protected virtual void Update()
@@ -49,7 +49,8 @@ public class Move : MonoBehaviour
         }
         rigid2D.velocity = direction;
         if (direction.x != 0)
-        spriteRenderer.flipX = direction.x < 0;
+            spriteRenderer.flipX = direction.x < 0;
+        anim.Anim_Move(direction);
     }
     private void Jumping()
     {
@@ -57,16 +58,19 @@ public class Move : MonoBehaviour
         {
             if (jumpY > -jumpPower)
             {
-                rigid2D.velocity += new Vector2 (0, jumpY);
+                rigid2D.velocity += new Vector2(0, jumpY);
                 jumpY -= 0.02f * Gravity;
+                if (jumpY < 0)
+                    anim.Anim_JumpFall();
             }
             else
             {
                 jumpY = 0;
                 isJumping = false;
+                anim.Anim_Jumping();
             }
-        }
 
+        }
     }
     protected virtual void InputKeys()
     {

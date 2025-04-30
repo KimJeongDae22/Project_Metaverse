@@ -16,6 +16,7 @@ public class Player_Move : Move
             {
                 isJumping = true;
                 jumpY = jumpPower;
+                anim.Anim_Jumping();
             }
         }
     }

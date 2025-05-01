@@ -57,7 +57,10 @@ public class TalkManager : MonoBehaviour
     public void InteractionWindowToggle()
     {
         if (!InteractionWindow.activeSelf)
+        {
             InteractionWindow.SetActive(true);
+            InteractionWindow.transform.position = player.transform.position;
+        }
         else
             InteractionWindow.SetActive(false);
     }

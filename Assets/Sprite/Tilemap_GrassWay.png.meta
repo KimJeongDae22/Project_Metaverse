@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,7 +128,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 66
-        width: 33
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,7 +147,7 @@ TextureImporter:
       name: Tilemap_GrassWay_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 33
         y: 66
         width: 32
         height: 32
@@ -168,7 +168,7 @@ TextureImporter:
       name: Tilemap_GrassWay_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 66
         y: 66
         width: 32
         height: 32
@@ -189,7 +189,7 @@ TextureImporter:
       name: Tilemap_GrassWay_3
       rect:
         serializedVersion: 2
-        x: 100
+        x: 99
         y: 66
         width: 32
         height: 32
@@ -210,9 +210,9 @@ TextureImporter:
       name: Tilemap_GrassWay_4
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 66
-        width: 31
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -254,7 +254,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 33
-        width: 33
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -273,7 +273,7 @@ TextureImporter:
       name: Tilemap_GrassWay_7
       rect:
         serializedVersion: 2
-        x: 34
+        x: 33
         y: 33
         width: 32
         height: 32
@@ -294,7 +294,7 @@ TextureImporter:
       name: Tilemap_GrassWay_8
       rect:
         serializedVersion: 2
-        x: 67
+        x: 66
         y: 33
         width: 32
         height: 32
@@ -315,7 +315,7 @@ TextureImporter:
       name: Tilemap_GrassWay_9
       rect:
         serializedVersion: 2
-        x: 100
+        x: 99
         y: 33
         width: 32
         height: 32
@@ -336,9 +336,9 @@ TextureImporter:
       name: Tilemap_GrassWay_10
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 33
-        width: 31
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -359,7 +359,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -378,7 +378,7 @@ TextureImporter:
       name: Tilemap_GrassWay_12
       rect:
         serializedVersion: 2
-        x: 34
+        x: 33
         y: 0
         width: 32
         height: 32
@@ -399,7 +399,7 @@ TextureImporter:
       name: Tilemap_GrassWay_13
       rect:
         serializedVersion: 2
-        x: 67
+        x: 66
         y: 0
         width: 32
         height: 32
@@ -420,7 +420,7 @@ TextureImporter:
       name: Tilemap_GrassWay_14
       rect:
         serializedVersion: 2
-        x: 100
+        x: 99
         y: 0
         width: 32
         height: 32
@@ -441,9 +441,9 @@ TextureImporter:
       name: Tilemap_GrassWay_15
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 0
-        width: 31
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}

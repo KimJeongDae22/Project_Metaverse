@@ -4,8 +4,9 @@ public class Move : MonoBehaviour
 {
     protected Rigidbody2D rigid2D;
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private Transform weaponPivot;
+
 
     protected Vector2 moveDirection = Vector2.zero;
 
@@ -52,14 +53,13 @@ public class Move : MonoBehaviour
             spriteRenderer.flipX = direction.x < 0;
         anim.Anim_Move(direction);
     }
-    private void Jumping()
+    protected virtual void Jumping()
     {
         if (isJumping)
         {
             if (jumpY > -jumpPower)
             {
-                //rigid2D.velocity += new Vector2(0, jumpY);
-                transform.position += new Vector3(0, jumpY);
+                //transform.position += new Vector3(0, jumpY);
                 jumpY -= 0.02f * Gravity;
                 if (jumpY < 0)
                     anim.Anim_JumpFall();
@@ -73,6 +73,12 @@ public class Move : MonoBehaviour
 
         }
     }
+    public float GetJumpY()
+    {
+        return jumpY;
+    }
+    public SpriteRenderer GetSprite()
+    { return spriteRenderer; }
     protected virtual void InputKeys()
     {
 

@@ -6,6 +6,7 @@ public class Player_Move : Move
     [SerializeField] private TalkManager talkManager;
 
     [SerializeField] protected bool isTalking;
+    private Vector2 playerZvec = new Vector2(0, 0.5f);
     public bool talkAble;
     public GameObject talkObject;
     protected override void Awake()
@@ -53,14 +54,14 @@ public class Player_Move : Move
     protected override void Jumping()
     {
         base.Jumping();
-        if (isJumping && player_Z.transform.localPosition.y >= 0)
+        if (isJumping && playerZvec.y >= 0.5f)
         {
             player_Z.transform.position += new Vector3(0, jumpY);
             if (player_Z.transform.localPosition.y < 0)
-                player_Z.transform.localPosition = Vector3.zero;
+                player_Z.transform.localPosition = playerZvec;
         }
         else
-            player_Z.transform.localPosition = Vector3.zero;
+            player_Z.transform.localPosition = playerZvec;
     }
     protected void LateUpdate()
     {

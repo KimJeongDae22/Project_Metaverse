@@ -14,7 +14,10 @@ public class Anim : MonoBehaviour
     public void Anim_Jumping()
     {
         if (!anim.GetBool("IsJumping"))
+        {
             anim.SetBool("IsJumping", true);
+            anim.SetBool("JumpFall", false);
+        }
         else
         {
             anim.SetBool("IsJumping", false);

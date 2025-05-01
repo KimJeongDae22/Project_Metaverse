@@ -368,9 +368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 556210509}
   weaponPivot: {fileID: 556210511}
-  jumpPower: 0.5
+  jumpPower: 1
   jumpY: 0
-  Gravity: 0.5
+  Gravity: 1
   isJumping: 0
   isMove: 0
   player_Z: {fileID: 0}

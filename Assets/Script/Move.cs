@@ -57,10 +57,10 @@ public class Move : MonoBehaviour
     {
         if (isJumping)
         {
-            if (jumpY > -jumpPower)
+            if (jumpY > -jumpPower / 10)
             {
                 //transform.position += new Vector3(0, jumpY);
-                jumpY -= 0.02f * Gravity;
+                jumpY -= 0.02f * Gravity / 10;
                 if (jumpY < 0)
                     anim.Anim_JumpFall();
             }

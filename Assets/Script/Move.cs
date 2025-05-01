@@ -11,7 +11,7 @@ public class Move : MonoBehaviour
     protected Vector2 moveDirection = Vector2.zero;
 
     protected Vector2 knockback = Vector2.zero;
-    private float knockbackDuration = 0.0f;
+    protected float knockbackDuration = 0.0f;
     [SerializeField] protected float jumpPower = 5.0f;
     [SerializeField] protected float jumpY = 0.0f;
     [SerializeField] protected float Gravity = 0.5f;
@@ -40,7 +40,7 @@ public class Move : MonoBehaviour
         if (knockbackDuration > 0.0f)
             knockbackDuration -= Time.deltaTime;
     }
-    private void Movement(Vector2 direction)
+    protected void Movement(Vector2 direction)
     {
         direction = direction * 5;
         if (knockbackDuration > 0.0f)

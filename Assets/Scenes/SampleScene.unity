@@ -1634,6 +1634,8 @@ MonoBehaviour:
   npcName: 
   sprite: {fileID: 0}
   player: {fileID: 556210510}
+  talkManager: {fileID: 1222989358}
+  talkIndex: 0
 --- !u!1 &1598824353
 GameObject:
   m_ObjectHideFlags: 0

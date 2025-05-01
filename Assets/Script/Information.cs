@@ -7,7 +7,7 @@ public class Information : MonoBehaviour
     [SerializeField] protected string npcName;
     [SerializeField] protected Sprite sprite;
     [SerializeField] protected Player_Move player;
-    [SerializeField] private TalkManager talkManager;
+    [SerializeField] protected TalkManager talkManager;
     [SerializeField] protected int talkIndex;
 
 

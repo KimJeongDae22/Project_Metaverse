@@ -47,6 +47,7 @@ public class Player_Move : Move
             {
                 string name = talkObject.GetComponent<Information>().GetNPCName();
                 Sprite sprite = talkObject.GetComponent<Information>().GetSprite();
+                int index = talkObject.GetComponent<Information>().GetTalkIndex();
                 talkManager.GetTalk(name, sprite);
             }
         }
@@ -74,8 +75,5 @@ public class Player_Move : Move
     {
         isTalking = !isTalking;
     }
-    public void GetInteractionWindowToggle()
-    {
-        talkManager.InteractionWindowToggle();
-    }
+
 }

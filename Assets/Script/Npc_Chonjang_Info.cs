@@ -8,6 +8,7 @@ public class Npc_Chonjang_Info : Information
     {
         npcName = NpcName.Chonjang;
         sprite = GetComponent<SpriteRenderer>().sprite;
+        talkIndex = 0;
     }
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +16,7 @@ public class Npc_Chonjang_Info : Information
         {
             player.talkObject = this.gameObject;
             player.talkAble = true;
-            player.GetInteractionWindowToggle();
+            GetInteractionWindowToggle();
         }
     }
     protected void OnTriggerExit2D(Collider2D collision)
@@ -24,7 +25,7 @@ public class Npc_Chonjang_Info : Information
         {
             player.talkObject = null;
             player.talkAble = false;
-            player.GetInteractionWindowToggle();
+            GetInteractionWindowToggle();
         }
     }
 

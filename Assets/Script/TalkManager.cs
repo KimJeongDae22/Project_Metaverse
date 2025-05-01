@@ -22,8 +22,9 @@ public class TalkManager : MonoBehaviour
     private void GetTalkData()
     {
         talkList.Add(NpcName.Chonjang, new string[]
-        { "안녕하신가 이 곳은 처음인 모양인게로군.",
-            "여기는 토깽이마을이라고 한다네, 난 이 곳의 촌장일세." });
+        { "안녕하신가 이 곳은 처음인 모양인게로군."
+        , "여기는 토깽이마을이라고 한다네, 난 이 곳의 촌장일세." 
+        , "자네 마음대로 마을을 한번 다녀보게나~"});
     }
     public void GetTalk(string npcName, Sprite npcSprite)
     {
@@ -31,9 +32,8 @@ public class TalkManager : MonoBehaviour
         if (!talkWindow.activeSelf)
         {
             talkWindow.SetActive(true);
-            player.GetInteractionWindowToggle();
+            InteractionWindowToggle();
             player.GetIsTalkingToggle();
-            talkIndex = 0;
             talkObjectName.text = "[" + npcName + "]";
             talkProfile.sprite = npcSprite;
             talkText.text = talkList[npcName][talkIndex];
@@ -49,7 +49,7 @@ public class TalkManager : MonoBehaviour
             {
                 talkWindow.SetActive(false);
                 talkIndex = 0;
-                player.GetInteractionWindowToggle();
+                InteractionWindowToggle();
                 player.GetIsTalkingToggle();
             }
         }

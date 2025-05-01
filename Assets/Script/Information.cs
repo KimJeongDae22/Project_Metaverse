@@ -7,6 +7,9 @@ public class Information : MonoBehaviour
     [SerializeField] protected string npcName;
     [SerializeField] protected Sprite sprite;
     [SerializeField] protected Player_Move player;
+    [SerializeField] private TalkManager talkManager;
+    [SerializeField] protected int talkIndex;
+
 
     protected virtual void Awake()
     {
@@ -15,4 +18,10 @@ public class Information : MonoBehaviour
         { return sprite; }
     public string GetNPCName() 
         { return npcName; }
+    public void GetInteractionWindowToggle()
+    {
+        talkManager.InteractionWindowToggle();
+    }
+    public int GetTalkIndex()
+        { return talkIndex; }
 }

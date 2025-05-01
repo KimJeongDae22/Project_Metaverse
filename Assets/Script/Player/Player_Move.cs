@@ -72,4 +72,8 @@ public class Player_Move : Move
     {
         isTalking = !isTalking;
     }
+    public void GetInteractionWindowToggle()
+    {
+        talkManager.InteractionWindowToggle();
+    }
 }

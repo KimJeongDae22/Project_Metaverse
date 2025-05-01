@@ -6,11 +6,14 @@ public class TalkManager : MonoBehaviour
 {
     private Dictionary<string, string[]> talkList;
     [SerializeField] private Player_Move player;
+
     [SerializeField] private GameObject talkWindow;
     [SerializeField] private Text talkObjectName;
     [SerializeField] private Image talkProfile;
     [SerializeField] private Text talkText;
     [SerializeField] private int talkIndex = 0;
+
+    [SerializeField] private GameObject InteractionWindow;
     private void Awake()
     {
         talkList = new Dictionary<string, string[]>();
@@ -28,6 +31,7 @@ public class TalkManager : MonoBehaviour
         if (!talkWindow.activeSelf)
         {
             talkWindow.SetActive(true);
+            player.GetInteractionWindowToggle();
             player.GetIsTalkingToggle();
             talkIndex = 0;
             talkObjectName.text = "[" + npcName + "]";
@@ -45,9 +49,17 @@ public class TalkManager : MonoBehaviour
             {
                 talkWindow.SetActive(false);
                 talkIndex = 0;
+                player.GetInteractionWindowToggle();
                 player.GetIsTalkingToggle();
             }
         }
+    }
+    public void InteractionWindowToggle()
+    {
+        if (!InteractionWindow.activeSelf)
+            InteractionWindow.SetActive(true);
+        else
+            InteractionWindow.SetActive(false);
     }
 
     public Dictionary<string, string[]> GetTaklList()

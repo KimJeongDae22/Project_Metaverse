@@ -27,18 +27,19 @@ public class Player_Move : Move
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             moveDirection = new Vector2(horizontal, vertical).normalized;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (isJumping == false)
+                {
+                    isJumping = true;
+                    jumpY = jumpPower / 10;
+                    anim.Anim_Jumping();
+                }
+            }
         }
         else
             moveDirection = Vector2.zero;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (isJumping == false)
-            {
-                isJumping = true;
-                jumpY = jumpPower / 10;
-                anim.Anim_Jumping();
-            }
-        }
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (talkAble)

@@ -11,7 +11,7 @@ public class WindowFollowPlayer : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         this.transform.position = player.transform.position;
     }

@@ -3,11 +3,12 @@ using UnityEngine;
 public class Player_Move : Move
 {
     [SerializeField] private Player_Z player_Z;
-    [SerializeField] private TalkManager talkManager;
-
-    [SerializeField] protected bool isTalking;
     private Vector2 playerZvec = new Vector2(0, 0.5f);
+
+    [SerializeField] private TalkManager talkManager;
+    [SerializeField] protected bool isTalking;
     public bool talkAble;
+    public int talkIndex;
     public GameObject talkObject;
     protected override void Awake()
     {
@@ -39,16 +40,26 @@ public class Player_Move : Move
             }
         }
         else
+        {
             moveDirection = Vector2.zero;
+            if (talkManager.GetIsYesOrNo())
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    talkManager.YesOrNoToggle();
+                }
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (talkAble)
             {
                 string name = talkObject.GetComponent<Information>().GetNPCName();
+                string quest = talkObject.GetComponent<Information>().GetQuestName();
                 Sprite sprite = talkObject.GetComponent<Information>().GetSprite();
                 int index = talkObject.GetComponent<Information>().GetTalkIndex();
-                talkManager.GetTalk(name, sprite);
+                talkManager.GetTalk(name, quest, sprite);
             }
         }
     }

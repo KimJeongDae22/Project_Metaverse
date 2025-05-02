@@ -16,6 +16,10 @@ public class Npc_Chonjang_Info : Information
         {
             player.talkObject = this.gameObject;
             player.talkAble = true;
+            if (quest.GetQuestList()[NpcName.Chonjang].GetAcceptQuest())
+                questName = QuestName.Accept;
+            if (quest.GetQuestList()[NpcName.Chonjang].GetClearQuest())
+                questName = QuestName.Clear;
             GetInteractionWindowToggle();
         }
     }

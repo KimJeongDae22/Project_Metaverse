@@ -24,8 +24,7 @@ public class Npc_EventTrigger : Information
         }
     }
     protected override void OnTriggerExit2D(Collider2D collision)
-    {
-
+    { 
     }
     protected void FixedUpdate()
     {

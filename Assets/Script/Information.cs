@@ -9,7 +9,6 @@ public class Information : MonoBehaviour
     [SerializeField] protected Sprite sprite;
     [SerializeField] protected Player_Move player;
     [SerializeField] protected TalkManager talkManager;
-    [SerializeField] protected int talkIndex;
 
     [SerializeField] protected QuestManager quest;
     protected virtual void Awake()
@@ -25,8 +24,6 @@ public class Information : MonoBehaviour
     {
         talkManager.InteractionWindowToggle();
     }
-    public int GetTalkIndex()
-        { return talkIndex; }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

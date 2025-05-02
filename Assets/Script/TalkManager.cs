@@ -21,6 +21,7 @@ public class TalkManager : MonoBehaviour
     [SerializeField] private bool IsYesOrNo = false;
 
     [SerializeField] private GameObject InteractionWindow;
+    [SerializeField] private bool isEventTrigger = false;
     private void Awake()
     {
         talkList = new Dictionary<string, string[]>();
@@ -51,6 +52,9 @@ public class TalkManager : MonoBehaviour
             {"촌장님께 그루터기의 사연을 물어보자."});
         talkList.Add(NpcName.StumpOfTown + QuestName.Clear, new string[]
             {"사연을 알게 된 그루터기에서 마음의 포근함이 느껴진다."});
+        // 이벤트 트리거
+        talkList.Add(NpcName.EventTrigger, new string[]
+            {"저기 뭔가 특별해 보이는 그루터기가 있다. 한번 살펴볼까?"});
     }
     public void GetTalk(string npcName, string quest, Sprite npcSprite)
     {
@@ -59,7 +63,10 @@ public class TalkManager : MonoBehaviour
         {
             talkWindow.SetActive(true);
             YesOrNoActive(npcName, talkIndex);
-            InteractionWindowToggle();
+            if (GetInteractionWindow())
+                InteractionWindowToggle();
+            else
+                isEventTrigger = true;
             player.GetIsTalkingToggle();
             InitYesOrNo();
             talkObjectName.text = "[" + npcName + "]";
@@ -95,8 +102,10 @@ public class TalkManager : MonoBehaviour
                 }
                 QuestActive(npcName, talkIndex, choice);
                 talkIndex = 0;
-                InteractionWindowToggle();
+                if (!GetInteractionWindow() && !isEventTrigger)
+                    InteractionWindowToggle();
                 player.GetIsTalkingToggle();
+                isEventTrigger = false;
             }
         }
     }
@@ -110,6 +119,8 @@ public class TalkManager : MonoBehaviour
         else
             InteractionWindow.SetActive(false);
     }
+    public bool GetInteractionWindow()
+    { return InteractionWindow.activeSelf; }
     public bool GetIsYesOrNo()
     { return IsYesOrNo; }
     private void InitYesOrNo()
@@ -153,6 +164,19 @@ public class TalkManager : MonoBehaviour
     }
     private void QuestActive(string npcName, int index, bool choice)
     {
+        if (npcName == NpcName.EventTrigger)
+        {
+            switch (index - 1)
+            {
+                case 0:
+                    Debug.Log("이벤트 트리거 역할 완료");
+                    questManager.GetQuestList()[NpcName.EventTrigger].QuestAccept();
+                    questManager.GetQuestList()[NpcName.EventTrigger].QuestClear();
+                    break;
+                default:
+                    break;
+            }
+        }
         if (npcName == NpcName.Chonjang)
         {
             switch (index - 1)

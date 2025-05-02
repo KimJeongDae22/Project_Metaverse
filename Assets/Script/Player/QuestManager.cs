@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
     }
     private void InitQuestData()
     {
+        QuestList.Add(NpcName.EventTrigger, new Quest());
         QuestList.Add(NpcName.Chonjang, new Quest());
     }
     public Dictionary<string, Quest> GetQuestList()

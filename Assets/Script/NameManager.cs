@@ -4,6 +4,7 @@ public class NpcName : MonoBehaviour
 {
     public const string Chonjang = "촌장";
     public const string StumpOfTown = "마을의 그루터기";
+    public const string EventTrigger = "이벤트 트리거";
 }
 public class ItemName : MonoBehaviour
 {

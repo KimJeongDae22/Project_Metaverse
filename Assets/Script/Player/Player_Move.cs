@@ -8,7 +8,6 @@ public class Player_Move : Move
     [SerializeField] private TalkManager talkManager;
     [SerializeField] protected bool isTalking;
     public bool talkAble;
-    public int talkIndex;
     public GameObject talkObject;
     protected override void Awake()
     {
@@ -58,7 +57,6 @@ public class Player_Move : Move
                 string name = talkObject.GetComponent<Information>().GetNPCName();
                 string quest = talkObject.GetComponent<Information>().GetQuestName();
                 Sprite sprite = talkObject.GetComponent<Information>().GetSprite();
-                int index = talkObject.GetComponent<Information>().GetTalkIndex();
                 talkManager.GetTalk(name, quest, sprite);
             }
         }

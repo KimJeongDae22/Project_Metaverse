@@ -73,9 +73,9 @@ public class Player_Move : Move
         {
             if (talkAble)
             {
-                string name = talkObject.GetComponent<Information>().GetNPCName();
-                string quest = talkObject.GetComponent<Information>().GetQuestName();
-                Sprite sprite = talkObject.GetComponent<Information>().GetSprite();
+                string name = talkObject.GetComponent<Npc_Info>().GetNPCName();
+                string quest = talkObject.GetComponent<Npc_Info>().GetQuestName();
+                Sprite sprite = talkObject.GetComponent<Npc_Info>().GetSprite();
                 talkManager.GetTalk(name, quest, sprite);
             }
         }

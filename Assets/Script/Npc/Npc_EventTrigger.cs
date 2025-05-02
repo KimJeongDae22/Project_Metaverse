@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc_EventTrigger : Information
+public class Npc_EventTrigger : Npc_Info
 {
     private bool isevent = false;
     protected override void Awake()

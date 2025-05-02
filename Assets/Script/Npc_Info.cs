@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
-public class Information : MonoBehaviour
+public class Npc_Info : MonoBehaviour
 {
     [SerializeField] protected string npcName;
     [SerializeField] protected string questName;

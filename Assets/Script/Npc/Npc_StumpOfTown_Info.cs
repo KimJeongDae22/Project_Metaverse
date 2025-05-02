@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Npc_StumpOfTown_Info : Information
+public class Npc_StumpOfTown_Info : Npc_Info
 {
 
     protected override void Awake()

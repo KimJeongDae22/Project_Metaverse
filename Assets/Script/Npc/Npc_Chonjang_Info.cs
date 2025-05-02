@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Npc_Chonjang_Info : Information
+public class Npc_Chonjang_Info : Npc_Info
 {
     protected override void Awake()
     {

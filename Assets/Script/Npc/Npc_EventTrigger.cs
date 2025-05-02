@@ -7,6 +7,7 @@ public class Npc_EventTrigger : Information
     private bool isevent = false;
     protected override void Awake()
     {
+        base.Awake();
         npcName = NpcName.EventTrigger;
         sprite = GetComponent<SpriteRenderer>().sprite;
     }
@@ -16,9 +17,9 @@ public class Npc_EventTrigger : Information
         {
             if (!isevent)
             {
-                player.talkObject = this.gameObject;
-                player.talkAble = true;
-                talkManager.GetTalk(npcName, questName, sprite);
+                Player_Move.instance.talkObject = this.gameObject;
+                Player_Move.instance.talkAble = true;
+                TalkManager.instance.GetTalk(npcName, questName, sprite);
                 isevent = true;
             }
         }
@@ -28,10 +29,10 @@ public class Npc_EventTrigger : Information
     }
     protected void FixedUpdate()
     {
-        if (quest.GetQuestList()[NpcName.EventTrigger].GetClearQuest())
+        if (QuestManager.instance.GetQuestList()[NpcName.EventTrigger].GetClearQuest())
         {
-            player.talkObject = null;
-            player.talkAble = false;
+            Player_Move.instance.talkObject = null;
+            Player_Move.instance.talkAble = false;
             Destroy(this.gameObject);
         }
     }

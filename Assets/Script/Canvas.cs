@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Z : Move
+public class Canvas : MonoBehaviour
 {
-    public static Player_Z instance;
-    protected override void Awake()
+    public static Canvas instance;
+    void Awake()
     {
-        base.Awake();
         if (instance == null)
         {
             instance = this;
@@ -18,12 +17,10 @@ public class Player_Z : Move
             Destroy(this.gameObject);
         }
     }
-    protected override void Update()
-    {
 
-
-    }
-    protected override void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
+        
     }
 }

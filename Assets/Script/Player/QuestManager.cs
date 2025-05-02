@@ -5,9 +5,21 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     private Dictionary<string, Quest> QuestList = new Dictionary<string, Quest>();
+
+    public static QuestManager instance;
     private void Awake()
     {
         InitQuestData();
+
+        if (instance == null )
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void InitQuestData()
     {

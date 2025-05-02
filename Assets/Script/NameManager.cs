@@ -16,4 +16,9 @@ public class QuestName : MonoBehaviour
     public const string Accept = " (퀘스트 수락) ";
     public const string Clear = " (퀘스트 완료) ";
 }
+public class SceneName : MonoBehaviour
+{
+    public const string Main = "MainScene";
+    public const string MiniGame = "MiniGameScene";
+}
 

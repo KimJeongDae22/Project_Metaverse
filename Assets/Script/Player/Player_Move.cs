@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Move : Move
 {
@@ -9,10 +10,28 @@ public class Player_Move : Move
     [SerializeField] protected bool isTalking;
     public bool talkAble;
     public GameObject talkObject;
+
+    public static Player_Move instance;
     protected override void Awake()
     {
         base.Awake();
         player_Z = GetComponentInChildren<Player_Z>();
+                if (instance == null )
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public Player_Move GetPlayer()
+    {
+        if (instance == null)
+            return instance = new Player_Move();
+        else
+            return instance;
     }
     protected override void FixedUpdate()
     {
@@ -60,6 +79,12 @@ public class Player_Move : Move
                 talkManager.GetTalk(name, quest, sprite);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene(SceneName.Main);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            SceneManager.LoadScene(SceneName.MiniGame);
     }
     protected override void Jumping()
     {

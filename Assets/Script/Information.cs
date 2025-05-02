@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Information : MonoBehaviour
@@ -7,12 +8,9 @@ public class Information : MonoBehaviour
     [SerializeField] protected string npcName;
     [SerializeField] protected string questName;
     [SerializeField] protected Sprite sprite;
-    [SerializeField] protected Player_Move player;
-    [SerializeField] protected TalkManager talkManager;
-
-    [SerializeField] protected QuestManager quest;
     protected virtual void Awake()
     {
+
     }
     public Sprite GetSprite()
         { return sprite; }
@@ -22,14 +20,14 @@ public class Information : MonoBehaviour
         { return questName; }
     public void GetInteractionWindowToggle()
     {
-        talkManager.InteractionWindowToggle();
+        TalkManager.instance.InteractionWindowToggle();
     }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.talkObject = this.gameObject;
-            player.talkAble = true;
+            Player_Move.instance.talkObject = this.gameObject;
+            Player_Move.instance.talkAble = true;
             GetInteractionWindowToggle();
         }
     }
@@ -37,8 +35,8 @@ public class Information : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.talkObject = null;
-            player.talkAble = false;
+            Player_Move.instance.talkObject = null;
+            Player_Move.instance.talkAble = false;
             GetInteractionWindowToggle();
         }
     }

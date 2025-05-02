@@ -303,9 +303,6 @@ MonoBehaviour:
   npcName: 
   questName: 
   sprite: {fileID: 0}
-  player: {fileID: 556210510}
-  talkManager: {fileID: 1222989358}
-  quest: {fileID: 259656474}
 --- !u!58 &57156110
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -669,7 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47df6133853a4be419085ea5e04e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 556210511}
   smoothing: 0.2
   minCameraPos: {x: 0, y: 0}
   maxCameraPos: {x: 13, y: 6}
@@ -1161,7 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a7a1b1cc4d93740abf619bc15c52cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 556210511}
 --- !u!1 &762103996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,8 +1540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64c1632686ca7045859fcd12a9e05b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 556210510}
-  questManager: {fileID: 259656474}
   talkWindow: {fileID: 100665579}
   YesOrNo: {fileID: 1728363354}
   Yes: {fileID: 2040599235}
@@ -1558,6 +1551,7 @@ MonoBehaviour:
   talkIndex: 0
   IsYesOrNo: 0
   InteractionWindow: {fileID: 755132817}
+  isEventTrigger: 0
 --- !u!4 &1222989359
 Transform:
   m_ObjectHideFlags: 0
@@ -1812,9 +1806,6 @@ MonoBehaviour:
   npcName: 
   questName: 
   sprite: {fileID: 0}
-  player: {fileID: 556210510}
-  talkManager: {fileID: 1222989358}
-  quest: {fileID: 259656474}
 --- !u!1 &1329444135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1897,7 @@ GameObject:
   - component: {fileID: 1452484554}
   - component: {fileID: 1452484553}
   - component: {fileID: 1452484552}
+  - component: {fileID: 1452484556}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1998,6 +1990,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1452484556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452484551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d348ef418f7854c9e643bdb95505ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1486306083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,9 +2280,6 @@ MonoBehaviour:
   npcName: 
   questName: 
   sprite: {fileID: 0}
-  player: {fileID: 556210510}
-  talkManager: {fileID: 1222989358}
-  quest: {fileID: 259656474}
 --- !u!1 &1536626715
 GameObject:
   m_ObjectHideFlags: 0

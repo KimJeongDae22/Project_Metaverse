@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class WindowFollowPlayer : MonoBehaviour
 {
-    private RectTransform rectTransform;
-    [SerializeField] private Transform player;
-
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
     private void FixedUpdate()
     {
-        this.transform.position = player.transform.position;
+        transform.position = Player_Move.instance.transform.position;
     }
 }

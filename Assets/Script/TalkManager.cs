@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class TalkManager : MonoBehaviour
 {
     private Dictionary<string, string[]> talkList;
-    [SerializeField] private Player_Move player;
-    [SerializeField] private QuestManager questManager;
     [SerializeField] private GameObject talkWindow;
 
     [SerializeField] private GameObject YesOrNo;
@@ -22,10 +20,22 @@ public class TalkManager : MonoBehaviour
 
     [SerializeField] private GameObject InteractionWindow;
     [SerializeField] private bool isEventTrigger = false;
+
+    public static TalkManager instance;
     private void Awake()
     {
         talkList = new Dictionary<string, string[]>();
         InitTalkData();
+        if (instance == null)
+
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void InitTalkData()
     {
@@ -67,7 +77,7 @@ public class TalkManager : MonoBehaviour
                 InteractionWindowToggle();
             else
                 isEventTrigger = true;
-            player.GetIsTalkingToggle();
+            Player_Move.instance.GetIsTalkingToggle();
             InitYesOrNo();
             talkObjectName.text = "[" + npcName + "]";
             talkProfile.sprite = npcSprite;
@@ -104,7 +114,7 @@ public class TalkManager : MonoBehaviour
                 talkIndex = 0;
                 if (!GetInteractionWindow() && !isEventTrigger)
                     InteractionWindowToggle();
-                player.GetIsTalkingToggle();
+                Player_Move.instance.GetIsTalkingToggle();
                 isEventTrigger = false;
             }
         }
@@ -114,7 +124,7 @@ public class TalkManager : MonoBehaviour
         if (!InteractionWindow.activeSelf)
         {
             InteractionWindow.SetActive(true);
-            InteractionWindow.transform.position = player.transform.position;
+            InteractionWindow.transform.position = Player_Move.instance.transform.position;
         }
         else
             InteractionWindow.SetActive(false);
@@ -170,8 +180,8 @@ public class TalkManager : MonoBehaviour
             {
                 case 0:
                     Debug.Log("이벤트 트리거 역할 완료");
-                    questManager.GetQuestList()[NpcName.EventTrigger].QuestAccept();
-                    questManager.GetQuestList()[NpcName.EventTrigger].QuestClear();
+                    QuestManager.instance.GetQuestList()[NpcName.EventTrigger].QuestAccept();
+                    QuestManager.instance.GetQuestList()[NpcName.EventTrigger].QuestClear();
                     break;
                 default:
                     break;
@@ -183,7 +193,7 @@ public class TalkManager : MonoBehaviour
             {
                 case 5:
                     Debug.Log("촌장 퀘스트 완료");
-                    questManager.GetQuestList()[NpcName.Chonjang].QuestClear();
+                    QuestManager.instance.GetQuestList()[NpcName.Chonjang].QuestClear();
                     break;
                 default:
                     break;
@@ -197,7 +207,7 @@ public class TalkManager : MonoBehaviour
                     if (choice)
                     {
                         Debug.Log("촌장 대화 변경");
-                        questManager.GetQuestList()[NpcName.Chonjang].QuestAccept();
+                        QuestManager.instance.GetQuestList()[NpcName.Chonjang].QuestAccept();
                     }
                     break;
                 default:

@@ -6,6 +6,7 @@ public class Npc_Chonjang_Info : Information
 {
     protected override void Awake()
     {
+        base.Awake();
         npcName = NpcName.Chonjang;
         sprite = GetComponent<SpriteRenderer>().sprite;
     }
@@ -13,16 +14,16 @@ public class Npc_Chonjang_Info : Information
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.talkObject = this.gameObject;
-            player.talkAble = true;
+            Player_Move.instance.talkObject = this.gameObject;
+            Player_Move.instance.talkAble = true;
             GetInteractionWindowToggle();
         }
     }
     protected void FixedUpdate()
     {
-        if (quest.GetQuestList()[NpcName.Chonjang].GetAcceptQuest())
+        if (QuestManager.instance.GetQuestList()[NpcName.Chonjang].GetAcceptQuest())
             questName = QuestName.Accept;
-        if (quest.GetQuestList()[NpcName.Chonjang].GetClearQuest())
+        if (QuestManager.instance.GetQuestList()[NpcName.Chonjang].GetClearQuest())
             questName = QuestName.Clear;
     }
 }

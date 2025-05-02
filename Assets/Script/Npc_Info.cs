@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 
 public class Npc_Info : MonoBehaviour
@@ -13,11 +10,11 @@ public class Npc_Info : MonoBehaviour
 
     }
     public Sprite GetSprite()
-        { return sprite; }
-    public string GetNPCName() 
-        { return npcName; }
+    { return sprite; }
+    public string GetNPCName()
+    { return npcName; }
     public string GetQuestName()
-        { return questName; }
+    { return questName; }
     public void GetInteractionWindowToggle()
     {
         TalkManager.instance.InteractionWindowToggle();

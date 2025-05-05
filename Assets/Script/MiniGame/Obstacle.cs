@@ -7,8 +7,8 @@ public class Obstacle : MonoBehaviour
     public float highPosY = 1f;
     public float lowPosY = -1f;
 
-    public float holeSizeMin = 1f;
-    public float holeSizeMax = 3f;
+    public float holeSizeMin = 10f;
+    public float holeSizeMax = 20f;
 
     public Transform topObs;
     public Transform bottomObs;

@@ -50,4 +50,12 @@ public class Mini_Player : MonoBehaviour
         animator.SetBool("JumpFall", rigid2D.velocity.y < 0 ? true : false);
         animator.SetBool("isDead", isDead);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) { return; }
+
+        isDead = true;
+        ScoreDelay = 1f;
+    }
 }

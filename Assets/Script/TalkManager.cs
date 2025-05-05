@@ -112,12 +112,12 @@ public class TalkManager : MonoBehaviour
                     }
                     IsYesOrNo = false;
                 }
-                QuestActive(npcName, talkIndex, choice);
-                talkIndex = 0;
                 if (!GetInteractionWindow() && !isEventTrigger)
                     InteractionWindowToggle();
                 Player_Move.instance.GetIsTalkingToggle();
                 isEventTrigger = false;
+                QuestActive(npcName, talkIndex, choice);
+                talkIndex = 0;
             }
         }
     }

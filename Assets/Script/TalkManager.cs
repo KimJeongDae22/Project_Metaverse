@@ -65,6 +65,8 @@ public class TalkManager : MonoBehaviour
         // 이벤트 트리거
         talkList.Add(NpcName.EventTrigger, new string[]
             {"저기 뭔가 특별해 보이는 그루터기가 있다. 한번 살펴볼까?"});
+        talkList.Add(NpcName.DanGeun, new string[]
+            {"당근 너머로! 미니 게임을 진행하시겠습니까?"});
     }
     public void GetTalk(string npcName, string quest, Sprite npcSprite)
     {
@@ -171,6 +173,18 @@ public class TalkManager : MonoBehaviour
                     break;
             }
         }
+        if (npcName == NpcName.DanGeun)
+        {
+            switch (index)
+            {
+                case 0:
+                    IsYesOrNo = true;
+                    break;
+                default:
+                    IsYesOrNo = false;
+                    break;
+            }
+        }
     }
     private void QuestActive(string npcName, int index, bool choice)
     {
@@ -208,6 +222,20 @@ public class TalkManager : MonoBehaviour
                     {
                         Debug.Log("촌장 대화 변경");
                         QuestManager.instance.GetQuestList()[NpcName.Chonjang].QuestAccept();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (npcName == NpcName.DanGeun)
+        {
+            switch (index - 1)
+            {
+                case 0:
+                    if (choice)
+                    {
+                        SceneChanger.instance.ChangeScene_MiniGame();
                     }
                     break;
                 default:

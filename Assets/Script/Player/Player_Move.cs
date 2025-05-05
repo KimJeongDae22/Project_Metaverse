@@ -81,10 +81,10 @@ public class Player_Move : Move
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SceneManager.LoadScene(SceneName.Main);
+            SceneChanger.instance.ChangeScene_Main();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
-            SceneManager.LoadScene(SceneName.MiniGame);
+            SceneChanger.instance.ChangeScene_MiniGame();
     }
     protected override void Jumping()
     {

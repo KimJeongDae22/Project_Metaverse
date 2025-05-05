@@ -56,6 +56,7 @@ public class Mini_Player : MonoBehaviour
         if (isDead) { return; }
 
         isDead = true;
+        GameManager.instance.Getgameover();
         ScoreDelay = 1f;
     }
 }

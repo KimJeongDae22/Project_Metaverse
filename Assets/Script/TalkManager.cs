@@ -71,21 +71,21 @@ public class TalkManager : MonoBehaviour
     public void GetTalk(string npcName, string quest, Sprite npcSprite)
     {
 
-        if (!talkWindow.activeSelf)
+        if (!talkWindow.activeSelf)             // 대화창이 활성화되어있지 않을 때(첫 대화)
         {
             talkWindow.SetActive(true);
-            YesOrNoActive(npcName, talkIndex);
-            if (GetInteractionWindow())
+            YesOrNoActive(npcName, talkIndex);  // 선택지가 있는 대화인지 판별
+            if (GetInteractionWindow())         
                 InteractionWindowToggle();
             else
-                isEventTrigger = true;
+                isEventTrigger = true;          // 이벤트 트리거 전용 코드
             Player_Move.instance.GetIsTalkingToggle();
-            InitYesOrNo();
+            InitYesOrNo();                      // 선택지 판별에 따른 선택지 오브젝트 활성화
             talkObjectName.text = "[" + npcName + "]";
             talkProfile.sprite = npcSprite;
             talkText.text = talkList[npcName + quest][talkIndex];
         }
-        else
+        else                                    // 첫 대화 이후 
         {
             talkIndex += 1;
             if (talkIndex < talkList[npcName + quest].Length)
@@ -96,9 +96,9 @@ public class TalkManager : MonoBehaviour
             }
             else
             {
-                talkWindow.SetActive(false);
+                talkWindow.SetActive(false);    // 대화가 종료되고 다음 코드를을 실행
                 bool choice = false;
-                if (IsYesOrNo)
+                if (IsYesOrNo)                  // 선택지가 있는 대화창이었을 경우
                 {
                     if (currentChoice == No)
                     {
@@ -116,7 +116,7 @@ public class TalkManager : MonoBehaviour
                     InteractionWindowToggle();
                 Player_Move.instance.GetIsTalkingToggle();
                 isEventTrigger = false;
-                QuestActive(npcName, talkIndex, choice);
+                QuestActive(npcName, talkIndex, choice);    // 선택지의 여부에 따라 각각의 결과 실행
                 talkIndex = 0;
             }
         }

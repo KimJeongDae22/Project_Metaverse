@@ -102,6 +102,7 @@ public class Player_Move : Move
     {
         player_Z.GetSprite().sprite = spriteRenderer.sprite;
         player_Z.GetSprite().flipX = spriteRenderer.flipX;
+
     }
     public bool GetIsJump()
     { return isJumping; }
